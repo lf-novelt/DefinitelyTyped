@@ -7,18 +7,33 @@
 
 import * as CodeMirror from "codemirror";
 
-declare module "codemirror" {
+export interface CodeMirrorXmlTag {
+    at: "open" | "close"
+    close: TagPart | null
+    open: TagPart
+}
 
+interface TagPart {
+    from: CodeMirror.Position
+    tag: string
+    to: CodeMirror.Position
+}
+interface TagRange {
+    from: number;
+    to: number
+}
+
+declare module "codemirror" {
 
     /** An extension of the existing CodeMirror typings added by xml-fold.js */
     // https://github.com/codemirror/CodeMirror/blob/1cb6de23c7e2b965201972ac5c6dcd2317e9eacf/addon/fold/xml-fold.js#L151
-    function findMatchingTag(cm: CodeMirror.Editor, pos: CodeMirror.Position, range: CodeMirror.Range): void;
+    function findMatchingTag(cm: CodeMirror.Editor, pos: CodeMirror.Position, range: TagRange): CodeMirrorXmlTag;
 
     // https://github.com/codemirror/CodeMirror/blob/1cb6de23c7e2b965201972ac5c6dcd2317e9eacf/addon/fold/xml-fold.js#L168
-    function findEnclosingTag(cm: CodeMirror.Editor, pos: CodeMirror.Position, range: CodeMirror.Range, tag: string): void;
+    function findEnclosingTag(cm: CodeMirror.Editor, pos: CodeMirror.Position, range: TagRange, tag: string): CodeMirrorXmlTag;
 
     // https://github.com/codemirror/CodeMirror/blob/1cb6de23c7e2b965201972ac5c6dcd2317e9eacf/addon/fold/xml-fold.js#L180
-    function scanForClosingTag(cm: CodeMirror.Editor, pos: CodeMirror.Position, name: string, end: number): void;
+    function scanForClosingTag(cm: CodeMirror.Editor, pos: CodeMirror.Position, name: string, end: number): TagPart;
 
 
 }
