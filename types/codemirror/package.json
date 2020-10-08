@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "TypeScript definitions for CodeMirror 5.58",
   "main": "",
-    "scripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-      "@types/tern": "*"
+    "@types/tern": "*",
+    "codemirror": "^5.58.1"
   },
   "repository": {
     "type": "git",
