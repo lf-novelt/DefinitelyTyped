@@ -1,0 +1,28 @@
+{
+  "name": "@types/codemirror",
+  "version": "1.0.0",
+  "description": "TypeScript definitions for CodeMirror 5.58",
+  "main": "",
+    "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+      "@types/tern": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lf-novelt/DefinitelyTyped.git",
+    "directory": "types/codemirror"
+  },
+  "keywords": [
+    "codemirror",
+    "typings",
+    "types"
+  ],
+  "author": "lf-novelt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lf-novelt/DefinitelyTyped/issues"
+  },
+  "homepage": "https://github.com/lf-novelt/DefinitelyTyped#readme"
+}
